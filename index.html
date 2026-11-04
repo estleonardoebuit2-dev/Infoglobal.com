@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFOGLOBAL | Geopolitical & Financial Intelligence Ecosystem</title>
+    <!-- Tailwind CSS & Marked.js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 900: '#070F1E', 800: '#0B192C', 700: '#1E293B', 600: '#334155' },
+                        gold: { 500: '#D4AF37', 400: '#F59E0B', 600: '#B8860B' }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #070F1E; color: #E2E8F0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .markdown-body h1 { font-family: 'Cinzel', serif; font-size: 1.875rem; color: #D4AF37; margin-top: 1.5rem; margin-bottom: 1rem; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; }
+        .markdown-body h2 { font-family: 'Cinzel', serif; font-size: 1.35rem; color: #94A3B8; margin-top: 1.25rem; margin-bottom: 0.75rem; }
+        .markdown-body h3 { font-size: 1.1rem; color: #CBD5E1; margin-top: 1rem; }
+        .markdown-body p { margin-bottom: 1rem; line-height: 1.7; color: #E2E8F0; }
+        .markdown-body ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
+        .markdown-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #0B192C; border: 1px solid #334155; }
+        .markdown-body th, .markdown-body td { border: 1px solid #334155; padding: 0.75rem; text-align: left; }
+        .markdown-body th { background: #1E293B; color: #D4AF37; font-family: 'Cinzel', serif; }
+        .markdown-body blockquote { border-left: 4px solid #D4AF37; padding-left: 1rem; color: #94A3B8; font-style: italic; margin: 1rem 0; }
+        .markdown-body a { color: #F59E0B; text-decoration: underline; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Header Principal -->
+    <header class="border-b border-slate-800 bg-navy-800/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-3 bg-gold-500 rounded-full animate-pulse"></div>
+                <div>
+                    <h1 class="font-serif font-extrabold text-2xl tracking-widest text-white">INFOGLOBAL<span class="text-gold-500">.COM</span></h1>
+                    <p class="text-xs text-slate-400 tracking-wider">GEOPOLITICAL & FINANCIAL INTELLIGENCE</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-300">
+                <span class="px-3 py-1 bg-navy-700 border border-slate-700 rounded-full text-xs text-gold-400">OSINT HEURISTIC ACTIVE</span>
+                <span>COYUNTURA GLOBAL</span>
+                <span>COLOMBIA</span>
+                <span>POLYMARKET & BOLSA</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Editorial -->
+    <section class="bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 border-b border-slate-800 py-12 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <span class="text-gold-500 font-semibold tracking-widest text-xs uppercase mb-2 block">Dictámenes de Inteligencia Estratégica</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">Análisis Cuantitativo, Geoeconómico y Coyuntura Internacional</h2>
+            <p class="max-w-3xl mx-auto text-slate-400 text-sm sm:text-base">
+                Sistema automatizado de minería de datos OSINT, correlación de mercados de predicción y cruce conceptual con la Malla Curricular de Relaciones Internacionales.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contenedor de Dictámenes -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Sidebar: Lista de Informes -->
+            <aside class="lg:col-span-1 space-y-4">
+                <h3 class="font-serif text-lg font-bold text-gold-500 border-b border-slate-800 pb-2 flex items-center justify-between">
+                    <span>INFORMES RECIENTES</span>
+                    <span id="posts-count" class="text-xs font-sans text-slate-400 bg-navy-700 px-2 py-0.5 rounded">0</span>
+                </h3>
+                <div id="posts-list" class="space-y-2 max-h-[600px] overflow-y-auto pr-2">
+                    <p class="text-xs text-slate-500 animate-pulse">Cargando archivo de dictámenes...</p>
+                </div>
+            </aside>
+
+            <!-- Visor de Dictamen Auditado -->
+            <article class="lg:col-span-3 bg-navy-800 border border-slate-800 rounded-xl p-6 sm:p-10 shadow-2xl">
+                <div id="active-post-header" class="mb-6 pb-6 border-b border-slate-700">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span id="active-category" class="text-xs font-semibold uppercase px-2.5 py-0.5 bg-gold-500/10 text-gold-400 border border-gold-500/30 rounded">DICTAMEN AUDITADO</span>
+                        <span id="active-date" class="text-xs text-slate-400">---</span>
+                    </div>
+                    <h2 id="active-title" class="font-serif text-2xl sm:text-4xl font-bold text-white">Cargando último reporte...</h2>
+                </div>
+                <div id="active-post-content" class="markdown-body">
+                    <p class="text-slate-400">Selecciona un dictamen de la lista lateral o espera la carga automática...</p>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-navy-900 py-8 text-center text-xs text-slate-500">
+        <p>© 2026 INFOGLOBAL ECOSYSTEM | OSINT & Geopolitical Intelligence Framework</p>
+    </footer>
+
+    <!-- Script de Carga desde GitHub API -->
+    <script>
+        const GITHUB_REPO = "estleonardoebuit2-dev/Infoglobal.com";
+        const POSTS_PATH = "posts";
+
+        async function cargarDictamenes() {
+            const listContainer = document.getElementById("posts-list");
+            const countContainer = document.getElementById("posts-count");
+
+            try {
+                const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${POSTS_PATH}`);
+                if (!res.ok) throw new Error("No se encontraron dictámenes.");
+
+                const files = await res.json();
+                const mdFiles = files.filter(f => f.name.endsWith(".md")).reverse();
+
+                countContainer.innerText = mdFiles.length;
+                listContainer.innerHTML = "";
+
+                if (mdFiles.length === 0) {
+                    listContainer.innerHTML = `<p class="text-xs text-slate-500">No hay publicaciones disponibles.</p>`;
+                    return;
+                }
+
+                mdFiles.forEach((file, index) => {
+                    const btn = document.createElement("button");
+                    btn.className = `w-full text-left p-3 rounded-lg border transition-all text-xs font-medium ${
+                        index === 0 
+                            ? 'bg-navy-700 border-gold-500/50 text-white shadow' 
+                            : 'bg-navy-900/50 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200'
+                    }`;
+                    
+                    const dateStr = file.name.substring(0, 10);
+                    const titleClean = file.name.replace(".md", "").replace(dateStr + "-", "").replaceAll("-", " ");
+                    
+                    btn.innerHTML = `
+                        <span class="block text-[10px] text-gold-500 font-mono mb-1">${dateStr}</span>
+                        <span class="line-clamp-2 font-semibold capitalize">${titleClean}</span>
+                    `;
+                    
+                    btn.onclick = () => {
+                        document.querySelectorAll("#posts-list button").forEach(b => {
+                            b.className = b.className.replace('bg-navy-700 border-gold-500/50 text-white shadow', 'bg-navy-900/50 border-slate-800 text-slate-400');
+                        });
+                        btn.className = 'w-full text-left p-3 rounded-lg border transition-all text-xs font-medium bg-navy-700 border-gold-500/50 text-white shadow';
+                        mostrarPost(file.download_url, titleClean, dateStr);
+                    };
+
+                    listContainer.appendChild(btn);
+                });
+
+                mostrarPost(mdFiles[0].download_url, mdFiles[0].name.replace(".md", "").substring(11).replaceAll("-", " "), mdFiles[0].name.substring(0, 10));
+
+            } catch (err) {
+                listContainer.innerHTML = `<p class="text-xs text-red-400">Error al conectar con GitHub API.</p>`;
+            }
+        }
+
+        async function mostrarPost(url, titulo, fecha) {
+            const titleElem = document.getElementById("active-title");
+            const dateElem = document.getElementById("active-date");
+            const contentElem = document.getElementById("active-post-content");
+
+            contentElem.innerHTML = `<p class="text-xs text-slate-400 animate-pulse">Desencriptando dictamen y formato Markdown...</p>`;
+
+            try {
+                const res = await fetch(url);
+                let text = await res.text();
+
+                if (text.startsWith("---")) {
+                    text = text.substring(text.indexOf("---", 3) + 3);
+                }
+
+                titleElem.innerText = titulo.toUpperCase();
+                dateElem.innerText = fecha;
+                contentElem.innerHTML = marked.parse(text);
+
+            } catch (e) {
+                contentElem.innerHTML = `<p class="text-xs text-red-400">Error al renderizar el dictamen seleccionado.</p>`;
+            }
+        }
+
+        cargarDictamenes();
+    </script>
+</body>
+</html>
