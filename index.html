@@ -29,9 +29,9 @@
                             500: '#78716C'
                         },
                         oxford: {
-                            900: '#0F172A',
-                            800: '#1E293B',
-                            700: '#334155'
+                            900: '#0B132B',
+                            800: '#1C2541',
+                            700: '#3A506B'
                         },
                         burgundy: {
                             900: '#450A0A',
@@ -52,11 +52,21 @@
     <style>
         body { background-color: #FAF8F5; color: #1C1917; font-family: 'Inter', sans-serif; }
         
-        /* Formato Tipográfico para Lectura de Dictámenes (Estilo Journal) */
+        /* Globo Terráqueo Aesthetic de Fondo */
+        .globe-hero-bg {
+            background-color: #0B132B;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(28, 37, 65, 0.75) 0%, rgba(11, 19, 43, 0.95) 100%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' opacity='0.15'%3E%3Cpath fill='%3C%23D8CFBC' d='M500 100C279.1 100 100 279.1 100 500s179.1 400 400 400 400-179.1 400-400S720.9 100 500 100zm0 30c204.4 0 370 165.6 370 370S704.4 870 500 870 130 704.4 130 500 295.6 130 500 130z'/%3E%3Cellipse cx='500' cy='500' rx='370' ry='160' fill='none' stroke='%3C%23D8CFBC' stroke-width='4'/%3E%3Cellipse cx='500' cy='500' rx='370' ry='280' fill='none' stroke='%3C%23D8CFBC' stroke-width='4'/%3E%3Cellipse cx='500' cy='500' rx='160' ry='370' fill='none' stroke='%3C%23D8CFBC' stroke-width='4'/%3E%3Cellipse cx='500' cy='500' rx='280' ry='370' fill='none' stroke='%3C%23D8CFBC' stroke-width='4'/%3E%3Cline x1='130' y1='500' x2='870' y2='500' stroke='%3C%23D8CFBC' stroke-width='4'/%3E%3Cline x1='500' y1='130' x2='500' y2='870' stroke='%3C%23D8CFBC' stroke-width='4'/%3E%3C/svg%3E");
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* Formato Tipográfico Universitario para Lectura de Dictámenes */
         .academic-body { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.125rem; line-height: 1.85; color: #2C2A29; }
-        .academic-body h1 { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: #0F172A; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #E6E0D2; padding-bottom: 0.5rem; line-height: 1.3; }
+        .academic-body h1 { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: #0B132B; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #E6E0D2; padding-bottom: 0.5rem; line-height: 1.3; }
         .academic-body h2 { font-family: 'Lora', serif; font-size: 1.45rem; font-weight: 600; color: #7C1D1D; margin-top: 1.75rem; margin-bottom: 0.85rem; line-height: 1.35; }
-        .academic-body h3 { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 600; color: #0F172A; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+        .academic-body h3 { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 600; color: #0B132B; margin-top: 1.25rem; margin-bottom: 0.5rem; }
         .academic-body p { margin-bottom: 1.35rem; text-align: justify; hyphens: auto; }
         .academic-body ul, .academic-body ol { margin-left: 1.75rem; margin-bottom: 1.35rem; }
         .academic-body ul { list-style-type: disc; }
@@ -64,80 +74,101 @@
         .academic-body li { margin-bottom: 0.5rem; }
         
         /* Tablas Académicas Tipo Revista Científica */
-        .academic-body table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-family: 'Inter', sans-serif; font-size: 0.9rem; background-color: #FFFFFF; border-top: 2px solid #0F172A; border-bottom: 2px solid #0F172A; }
-        .academic-body th { background-color: #F4F0E6; color: #0F172A; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; padding: 0.75rem; border-bottom: 1px solid #D8CFBC; text-align: left; }
+        .academic-body table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-family: 'Inter', sans-serif; font-size: 0.9rem; background-color: #FFFFFF; border-top: 2px solid #0B132B; border-bottom: 2px solid #0B132B; }
+        .academic-body th { background-color: #F4F0E6; color: #0B132B; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; padding: 0.75rem; border-bottom: 1px solid #D8CFBC; text-align: left; }
         .academic-body td { padding: 0.75rem; border-bottom: 1px solid #E6E0D2; color: #2C2A29; }
         .academic-body tr:hover { background-color: #FAF8F5; }
         
-        /* Citas Teóricas y Bloques */
+        /* Citas Teóricas */
         .academic-body blockquote { border-left: 3px solid #7C1D1D; padding-left: 1.25rem; margin: 1.5rem 0; font-style: italic; color: #44403C; background-color: #FEF2F2; padding-top: 0.75rem; padding-bottom: 0.75rem; border-radius: 0 0.375rem 0.375rem 0; }
         .academic-body a { color: #7C1D1D; text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
-        .academic-body a:hover { color: #0F172A; }
-        .academic-body strong { color: #0F172A; font-weight: 600; }
+        .academic-body a:hover { color: #0B132B; }
+        .academic-body strong { color: #0B132B; font-weight: 600; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-burgundy-800 selection:text-white">
 
-    <!-- Encabezado Institucional (Membrete Académico) -->
-    <header class="border-b-2 border-oxford-900 bg-paper-50 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
-            <div class="flex items-center space-x-4">
-                <div class="w-2.5 h-10 bg-burgundy-800 hidden sm:block"></div>
-                <div>
-                    <h1 class="font-serifTitle font-bold text-2xl sm:text-3xl tracking-tight text-oxford-900">INFOGLOBAL<span class="text-burgundy-800">.COM</span></h1>
-                    <p class="text-[11px] font-sans text-ink-700 tracking-widest uppercase font-semibold">Instituto de Inteligencia Geopolítica & Análisis Estratégico</p>
+    <!-- Hero Institutional Banner con Globo Terráqueo Aesthetic (Inspiración Duke/Regal Crest) -->
+    <header class="globe-hero-bg text-white border-b-4 border-burgundy-800 shadow-xl relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-white/10 pb-6 mb-6">
+                <div class="flex items-center space-x-4">
+                    <div class="w-3 h-12 bg-burgundy-800 rounded-full shadow-lg hidden sm:block"></div>
+                    <div>
+                        <!-- Título Cambiado: Solo INFOGLOBAL -->
+                        <h1 class="font-serifTitle font-bold text-3xl sm:text-5xl tracking-widest text-white">INFOGLOBAL</h1>
+                        <p class="text-xs font-sans text-paper-200 tracking-widest uppercase font-semibold mt-1">Instituto de Inteligencia Geopolítica & Análisis Estratégico</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3 text-xs font-semibold uppercase tracking-wider">
+                    <span class="px-3 py-1.5 bg-burgundy-800/80 border border-burgundy-700 rounded-md text-paper-50 shadow">Ecosistema OSINT Activo</span>
+                    <span class="px-3 py-1.5 bg-white/10 backdrop-blur border border-white/20 rounded-md text-paper-100" id="header-date">Cargando fecha...</span>
                 </div>
             </div>
-            <div class="hidden md:flex items-center space-x-6 text-xs font-semibold uppercase tracking-wider text-oxford-800">
-                <span class="px-3 py-1 bg-paper-100 border border-paper-300 rounded text-burgundy-800">Coyuntura Auditada</span>
-                <span class="hover:text-burgundy-800 transition cursor-pointer">Colombia</span>
-                <span class="hover:text-burgundy-800 transition cursor-pointer">Internacional</span>
-                <span class="hover:text-burgundy-800 transition cursor-pointer">Financiero</span>
-            </div>
+            
+            <p class="max-w-3xl text-sm sm:text-base text-paper-200 font-sans font-light leading-relaxed">
+                Plataforma automatizada de dictámenes de coyuntura. Minería de datos de fuentes abiertas (OSINT) articulada con la Malla Curricular de Relaciones Internacionales y modelos econométricos.
+            </p>
         </div>
     </header>
-
-    <!-- Sub-header Editorial / ISSN Mock -->
-    <div class="bg-paper-100 border-b border-paper-200 py-2 px-4 text-xs font-sans text-ink-700">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1">
-            <span class="font-mono">PUBLICACIÓN DIARIA DE INTELIGENCIA ESTRATÉGICA Y ANÁLISIS OSINT</span>
-            <span class="font-semibold text-oxford-900" id="current-date">EDICIÓN CONTINUA</span>
-        </div>
-    </div>
 
     <!-- Contenedor Principal de Lectura -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
             
-            <!-- Sidebar: Índice de Dictámenes Recientes (Column 4) -->
-            <aside class="lg:col-span-4 space-y-4 order-2 lg:order-1">
-                <div class="bg-white border border-paper-200 p-5 rounded-lg shadow-sm">
+            <!-- Sidebar Izquierdo: Lista y Comentarios de Lectores (Column 4) -->
+            <aside class="lg:col-span-4 space-y-6 order-2 lg:order-1">
+                
+                <!-- Tarjeta 1: Archivo de Dictámenes -->
+                <div class="bg-white border border-paper-200 p-5 rounded-xl shadow-sm">
                     <h3 class="font-serifTitle text-base font-bold text-oxford-900 border-b border-paper-200 pb-3 mb-4 flex items-center justify-between">
                         <span>ARCHIVOS RECIENTES</span>
-                        <span id="posts-count" class="text-xs font-sans text-burgundy-800 font-bold bg-burgundy-50 px-2 py-0.5 rounded border border-burgundy-700/20">0</span>
+                        <span id="posts-count" class="text-xs font-sans text-burgundy-800 font-bold bg-burgundy-50 px-2.5 py-0.5 rounded-full border border-burgundy-700/20">0</span>
                     </h3>
-                    <div id="posts-list" class="space-y-2.5 max-h-[650px] overflow-y-auto pr-1">
-                        <p class="text-xs text-ink-500 animate-pulse font-sans">Accediendo al repositorio institucional...</p>
+                    <div id="posts-list" class="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
+                        <p class="text-xs text-ink-500 animate-pulse font-sans">Conectando al repositorio de GitHub...</p>
                     </div>
                 </div>
 
-                <!-- Tarjeta Metodológica -->
-                <div class="bg-paper-100 border border-paper-200 p-4 rounded-lg text-xs text-ink-700 space-y-2">
-                    <h4 class="font-serifTitle font-bold text-oxford-900 uppercase">Nota Metodológica</h4>
-                    <p class="line-clamp-4 leading-relaxed">
-                        Los dictámenes integran minería de datos factuales (OSINT) con la Malla Curricular Universitaria de Relaciones Internacionales. Cada análisis incluye doble trazabilidad de prensa y cuadernos teóricos.
-                    </p>
+                <!-- Tarjeta 2: NUEVA SECCIÓN - Comentarios y Foro de Lectores -->
+                <div class="bg-white border border-paper-200 p-5 rounded-xl shadow-sm space-y-4">
+                    <h3 class="font-serifTitle text-base font-bold text-oxford-900 border-b border-paper-200 pb-3 flex items-center justify-between">
+                        <span>DEBATE & COMENTARIOS</span>
+                        <span class="text-[10px] font-sans font-semibold text-oxford-700 bg-paper-100 px-2 py-0.5 rounded">Foro Abierto</span>
+                    </h3>
+                    
+                    <!-- Formulario de Entrada -->
+                    <form id="comment-form" onsubmit="agregarComentario(event)" class="space-y-3">
+                        <div>
+                            <input type="text" id="comment-author" placeholder="Tu Nombre o Afiliación Institucional" required 
+                                class="w-full text-xs p-2.5 bg-paper-50 border border-paper-200 rounded-lg focus:outline-none focus:border-oxford-800 font-sans">
+                        </div>
+                        <div>
+                            <textarea id="comment-text" rows="3" placeholder="Escribe tu análisis o comentario sobre este dictamen..." required 
+                                class="w-full text-xs p-2.5 bg-paper-50 border border-paper-200 rounded-lg focus:outline-none focus:border-oxford-800 font-sans"></textarea>
+                        </div>
+                        <button type="submit" 
+                            class="w-full text-xs font-bold uppercase tracking-wider py-2.5 bg-oxford-900 text-white rounded-lg hover:bg-burgundy-800 transition shadow">
+                            Publicar Comentario
+                        </button>
+                    </form>
+
+                    <!-- Feed de Comentarios -->
+                    <div id="comments-feed" class="space-y-3 max-h-[300px] overflow-y-auto pt-2 border-t border-paper-100">
+                        <!-- Comentarios dinámicos cargados por JS -->
+                    </div>
                 </div>
+
             </aside>
 
-            <!-- Papel del Dictamen Principal (Column 8) -->
-            <article class="lg:col-span-8 bg-white border border-paper-200 rounded-lg p-6 sm:p-12 shadow-sm order-1 lg:order-2">
+            <!-- Panel de Dictamen Principal (Column 8) -->
+            <article class="lg:col-span-8 bg-white border border-paper-200 rounded-xl p-6 sm:p-12 shadow-sm order-1 lg:order-2">
                 <header id="active-post-header" class="mb-8 pb-6 border-b-2 border-paper-200">
                     <div class="flex items-center space-x-3 mb-3">
                         <span id="active-category" class="text-[11px] font-sans font-bold uppercase tracking-wider px-2.5 py-0.5 bg-burgundy-800 text-white rounded">DICTAMEN AUDITADO</span>
                         <span id="active-date" class="text-xs font-mono text-ink-500">-----</span>
                     </div>
-                    <h2 id="active-title" class="font-serifTitle text-2xl sm:text-3xl font-bold text-oxford-900 leading-tight">Cargando dictamen institucional...</h2>
+                    <h2 id="active-title" class="font-serifTitle text-2xl sm:text-4xl font-bold text-oxford-900 leading-tight">Cargando reporte estratégico...</h2>
                 </header>
 
                 <!-- Cuerpo de Texto (Estilo Monografía / Journal) -->
@@ -150,22 +181,23 @@
     </main>
 
     <!-- Pie de Página Institucional -->
-    <footer class="border-t-2 border-oxford-900 bg-paper-100 py-10 text-center text-xs text-ink-700 font-sans">
+    <footer class="border-t-2 border-oxford-900 bg-oxford-900 text-white py-10 text-center text-xs font-sans">
         <div class="max-w-7xl mx-auto px-4 space-y-2">
-            <p class="font-serifTitle text-sm font-bold text-oxford-900">INFOGLOBAL ECOSYSTEM</p>
-            <p>© 2026 INFOGLOBAL | Framework de Inteligencia Geopolítica y Análisis Estratégico</p>
-            <p class="text-[10px] text-ink-500">Diseñado bajo estándares de visualización académica y lectura de alta densidad.</p>
+            <p class="font-serifTitle text-base font-bold tracking-widest">INFOGLOBAL</p>
+            <p class="text-paper-300">© 2026 INFOGLOBAL | Intelligence Ecosystem & Geopolitical Analysis Framework</p>
+            <p class="text-[10px] text-paper-300/60">Optimizado para lectura de alta densidad y auditoría analítica humana.</p>
         </div>
     </footer>
 
-    <!-- Lógica de Consulta GitHub API & Parseo -->
+    <!-- Lógica de Consulta GitHub API, Parseo y Sistema de Comentarios -->
     <script>
         const GITHUB_REPO = "estleonardoebuit2-dev/Infoglobal.com";
         const POSTS_PATH = "posts";
 
-        // Mostrar fecha actual en membrete
-        document.getElementById("current-date").innerText = new Date().toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase();
+        // Fecha actual
+        document.getElementById("header-date").innerText = new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' }).toUpperCase();
 
+        // 1. Cargar Dictámenes desde GitHub
         async function cargarDictamenes() {
             const listContainer = document.getElementById("posts-list");
             const countContainer = document.getElementById("posts-count");
@@ -187,7 +219,7 @@
 
                 mdFiles.forEach((file, index) => {
                     const btn = document.createElement("button");
-                    btn.className = `w-full text-left p-3 rounded transition-all text-xs border ${
+                    btn.className = `w-full text-left p-3 rounded-lg transition-all text-xs border ${
                         index === 0 
                             ? 'bg-paper-100 border-burgundy-800 text-oxford-900 font-semibold shadow-sm' 
                             : 'bg-white border-paper-200 text-ink-700 hover:border-paper-300 hover:bg-paper-50'
@@ -206,16 +238,15 @@
                     
                     btn.onclick = () => {
                         document.querySelectorAll("#posts-list button").forEach(b => {
-                            b.className = 'w-full text-left p-3 rounded transition-all text-xs border bg-white border-paper-200 text-ink-700 hover:border-paper-300 hover:bg-paper-50';
+                            b.className = 'w-full text-left p-3 rounded-lg transition-all text-xs border bg-white border-paper-200 text-ink-700 hover:border-paper-300 hover:bg-paper-50';
                         });
-                        btn.className = 'w-full text-left p-3 rounded transition-all text-xs border bg-paper-100 border-burgundy-800 text-oxford-900 font-semibold shadow-sm';
+                        btn.className = 'w-full text-left p-3 rounded-lg transition-all text-xs border bg-paper-100 border-burgundy-800 text-oxford-900 font-semibold shadow-sm';
                         mostrarPost(file.download_url, titleClean, dateStr);
                     };
 
                     listContainer.appendChild(btn);
                 });
 
-                // Cargar automáticamente el más reciente
                 const primerTitulo = mdFiles[0].name.replace(".md", "").substring(11).replaceAll("-", " ");
                 mostrarPost(mdFiles[0].download_url, primerTitulo, mdFiles[0].name.substring(0, 10));
 
@@ -229,13 +260,12 @@
             const dateElem = document.getElementById("active-date");
             const contentElem = document.getElementById("active-post-content");
 
-            contentElem.innerHTML = `<p class="text-xs text-ink-500 animate-pulse font-sans">Procesando y aplicando tipografía académica...</p>`;
+            contentElem.innerHTML = `<p class="text-xs text-ink-500 animate-pulse font-sans">Decodificando y aplicando formato tipográfico...</p>`;
 
             try {
                 const res = await fetch(url);
                 let text = await res.text();
 
-                // Quitar Frontmatter si existe
                 if (text.startsWith("---")) {
                     text = text.substring(text.indexOf("---", 3) + 3);
                 }
@@ -249,7 +279,43 @@
             }
         }
 
+        // 2. Sistema de Comentarios de Lectores (Guardado en LocalStorage)
+        const comentariosIniciales = [
+            { autor: "Dra. Helena Ruiz (Observatorio de Riesgo)", texto: "Excelente correlación entre la variable macroeconómica y el marco constitucional citado.", fecha: "Hace 2 horas" },
+            { autor: "Analista Sr. M. Restrepo", texto: "El dictamen de coyuntura nacional refleja con precisión los indicadores OSINT reportados por la mañana.", fecha: "Hace 5 horas" }
+        ];
+
+        function cargarComentarios() {
+            const feed = document.getElementById("comments-feed");
+            const guardados = JSON.parse(localStorage.getItem("infoglobal_comments")) || comentariosIniciales;
+            
+            feed.innerHTML = guardados.map(c => `
+                <div class="p-2.5 bg-paper-50 rounded-lg border border-paper-200 text-xs space-y-1">
+                    <div class="flex items-center justify-between font-semibold text-oxford-900">
+                        <span>${c.autor}</span>
+                        <span class="text-[9px] font-mono text-ink-500 font-normal">${c.fecha}</span>
+                    </div>
+                    <p class="text-ink-700 font-sans leading-relaxed">${c.texto}</p>
+                </div>
+            `).join("");
+        }
+
+        function agregarComentario(e) {
+            e.preventDefault();
+            const author = document.getElementById("comment-author").value;
+            const text = document.getElementById("comment-text").value;
+
+            const nuevos = JSON.parse(localStorage.getItem("infoglobal_comments")) || comentariosIniciales;
+            nuevos.unshift({ autor: author, texto: text, fecha: "Ahora" });
+            
+            localStorage.setItem("infoglobal_comments", JSON.stringify(nuevos));
+            document.getElementById("comment-form").reset();
+            cargarComentarios();
+        }
+
+        // Inicializar
         cargarDictamenes();
+        cargarComentarios();
     </script>
 </body>
 </html>
