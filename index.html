@@ -1,116 +1,170 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INFOGLOBAL | Geopolitical & Financial Intelligence Ecosystem</title>
-    <!-- Tailwind CSS & Marked.js -->
+    <title>INFOGLOBAL | Journal of Geopolitical & Financial Intelligence</title>
+    <!-- CDNs: Tailwind CSS, Marked.js, Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        navy: { 900: '#070F1E', 800: '#0B192C', 700: '#1E293B', 600: '#334155' },
-                        gold: { 500: '#D4AF37', 400: '#F59E0B', 600: '#B8860B' }
+                        paper: {
+                            50: '#FAF8F5',
+                            100: '#F4F0E6',
+                            200: '#E6E0D2',
+                            300: '#D8CFBC'
+                        },
+                        ink: {
+                            900: '#1C1917',
+                            800: '#2C2A29',
+                            700: '#44403C',
+                            500: '#78716C'
+                        },
+                        oxford: {
+                            900: '#0F172A',
+                            800: '#1E293B',
+                            700: '#334155'
+                        },
+                        burgundy: {
+                            900: '#450A0A',
+                            800: '#7C1D1D',
+                            700: '#991B1B',
+                            50: '#FEF2F2'
+                        }
                     },
                     fontFamily: {
-                        serif: ['Cinzel', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                        serifTitle: ['Lora', 'Georgia', 'serif'],
+                        serifBody: ['Source Serif 4', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif']
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #070F1E; color: #E2E8F0; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .markdown-body h1 { font-family: 'Cinzel', serif; font-size: 1.875rem; color: #D4AF37; margin-top: 1.5rem; margin-bottom: 1rem; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; }
-        .markdown-body h2 { font-family: 'Cinzel', serif; font-size: 1.35rem; color: #94A3B8; margin-top: 1.25rem; margin-bottom: 0.75rem; }
-        .markdown-body h3 { font-size: 1.1rem; color: #CBD5E1; margin-top: 1rem; }
-        .markdown-body p { margin-bottom: 1rem; line-height: 1.7; color: #E2E8F0; }
-        .markdown-body ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
-        .markdown-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #0B192C; border: 1px solid #334155; }
-        .markdown-body th, .markdown-body td { border: 1px solid #334155; padding: 0.75rem; text-align: left; }
-        .markdown-body th { background: #1E293B; color: #D4AF37; font-family: 'Cinzel', serif; }
-        .markdown-body blockquote { border-left: 4px solid #D4AF37; padding-left: 1rem; color: #94A3B8; font-style: italic; margin: 1rem 0; }
-        .markdown-body a { color: #F59E0B; text-decoration: underline; }
+        body { background-color: #FAF8F5; color: #1C1917; font-family: 'Inter', sans-serif; }
+        
+        /* Formato Tipográfico para Lectura de Dictámenes (Estilo Journal) */
+        .academic-body { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.125rem; line-height: 1.85; color: #2C2A29; }
+        .academic-body h1 { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: #0F172A; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #E6E0D2; padding-bottom: 0.5rem; line-height: 1.3; }
+        .academic-body h2 { font-family: 'Lora', serif; font-size: 1.45rem; font-weight: 600; color: #7C1D1D; margin-top: 1.75rem; margin-bottom: 0.85rem; line-height: 1.35; }
+        .academic-body h3 { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 600; color: #0F172A; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+        .academic-body p { margin-bottom: 1.35rem; text-align: justify; hyphens: auto; }
+        .academic-body ul, .academic-body ol { margin-left: 1.75rem; margin-bottom: 1.35rem; }
+        .academic-body ul { list-style-type: disc; }
+        .academic-body ol { list-style-type: decimal; }
+        .academic-body li { margin-bottom: 0.5rem; }
+        
+        /* Tablas Académicas Tipo Revista Científica */
+        .academic-body table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-family: 'Inter', sans-serif; font-size: 0.9rem; background-color: #FFFFFF; border-top: 2px solid #0F172A; border-bottom: 2px solid #0F172A; }
+        .academic-body th { background-color: #F4F0E6; color: #0F172A; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; padding: 0.75rem; border-bottom: 1px solid #D8CFBC; text-align: left; }
+        .academic-body td { padding: 0.75rem; border-bottom: 1px solid #E6E0D2; color: #2C2A29; }
+        .academic-body tr:hover { background-color: #FAF8F5; }
+        
+        /* Citas Teóricas y Bloques */
+        .academic-body blockquote { border-left: 3px solid #7C1D1D; padding-left: 1.25rem; margin: 1.5rem 0; font-style: italic; color: #44403C; background-color: #FEF2F2; padding-top: 0.75rem; padding-bottom: 0.75rem; border-radius: 0 0.375rem 0.375rem 0; }
+        .academic-body a { color: #7C1D1D; text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
+        .academic-body a:hover { color: #0F172A; }
+        .academic-body strong { color: #0F172A; font-weight: 600; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between selection:bg-burgundy-800 selection:text-white">
 
-    <!-- Header Principal -->
-    <header class="border-b border-slate-800 bg-navy-800/90 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-3 h-3 bg-gold-500 rounded-full animate-pulse"></div>
+    <!-- Encabezado Institucional (Membrete Académico) -->
+    <header class="border-b-2 border-oxford-900 bg-paper-50 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="w-2.5 h-10 bg-burgundy-800 hidden sm:block"></div>
                 <div>
-                    <h1 class="font-serif font-extrabold text-2xl tracking-widest text-white">INFOGLOBAL<span class="text-gold-500">.COM</span></h1>
-                    <p class="text-xs text-slate-400 tracking-wider">GEOPOLITICAL & FINANCIAL INTELLIGENCE</p>
+                    <h1 class="font-serifTitle font-bold text-2xl sm:text-3xl tracking-tight text-oxford-900">INFOGLOBAL<span class="text-burgundy-800">.COM</span></h1>
+                    <p class="text-[11px] font-sans text-ink-700 tracking-widest uppercase font-semibold">Instituto de Inteligencia Geopolítica & Análisis Estratégico</p>
                 </div>
             </div>
-            <div class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-300">
-                <span class="px-3 py-1 bg-navy-700 border border-slate-700 rounded-full text-xs text-gold-400">OSINT HEURISTIC ACTIVE</span>
-                <span>COYUNTURA GLOBAL</span>
-                <span>COLOMBIA</span>
-                <span>POLYMARKET & BOLSA</span>
+            <div class="hidden md:flex items-center space-x-6 text-xs font-semibold uppercase tracking-wider text-oxford-800">
+                <span class="px-3 py-1 bg-paper-100 border border-paper-300 rounded text-burgundy-800">Coyuntura Auditada</span>
+                <span class="hover:text-burgundy-800 transition cursor-pointer">Colombia</span>
+                <span class="hover:text-burgundy-800 transition cursor-pointer">Internacional</span>
+                <span class="hover:text-burgundy-800 transition cursor-pointer">Financiero</span>
             </div>
         </div>
     </header>
 
-    <!-- Banner Editorial -->
-    <section class="bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 border-b border-slate-800 py-12 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <span class="text-gold-500 font-semibold tracking-widest text-xs uppercase mb-2 block">Dictámenes de Inteligencia Estratégica</span>
-            <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">Análisis Cuantitativo, Geoeconómico y Coyuntura Internacional</h2>
-            <p class="max-w-3xl mx-auto text-slate-400 text-sm sm:text-base">
-                Sistema automatizado de minería de datos OSINT, correlación de mercados de predicción y cruce conceptual con la Malla Curricular de Relaciones Internacionales.
-            </p>
+    <!-- Sub-header Editorial / ISSN Mock -->
+    <div class="bg-paper-100 border-b border-paper-200 py-2 px-4 text-xs font-sans text-ink-700">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1">
+            <span class="font-mono">PUBLICACIÓN DIARIA DE INTELIGENCIA ESTRATÉGICA Y ANÁLISIS OSINT</span>
+            <span class="font-semibold text-oxford-900" id="current-date">EDICIÓN CONTINUA</span>
         </div>
-    </section>
+    </div>
 
-    <!-- Contenedor de Dictámenes -->
+    <!-- Contenedor Principal de Lectura -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
             
-            <!-- Sidebar: Lista de Informes -->
-            <aside class="lg:col-span-1 space-y-4">
-                <h3 class="font-serif text-lg font-bold text-gold-500 border-b border-slate-800 pb-2 flex items-center justify-between">
-                    <span>INFORMES RECIENTES</span>
-                    <span id="posts-count" class="text-xs font-sans text-slate-400 bg-navy-700 px-2 py-0.5 rounded">0</span>
-                </h3>
-                <div id="posts-list" class="space-y-2 max-h-[600px] overflow-y-auto pr-2">
-                    <p class="text-xs text-slate-500 animate-pulse">Cargando archivo de dictámenes...</p>
+            <!-- Sidebar: Índice de Dictámenes Recientes (Column 4) -->
+            <aside class="lg:col-span-4 space-y-4 order-2 lg:order-1">
+                <div class="bg-white border border-paper-200 p-5 rounded-lg shadow-sm">
+                    <h3 class="font-serifTitle text-base font-bold text-oxford-900 border-b border-paper-200 pb-3 mb-4 flex items-center justify-between">
+                        <span>ARCHIVOS RECIENTES</span>
+                        <span id="posts-count" class="text-xs font-sans text-burgundy-800 font-bold bg-burgundy-50 px-2 py-0.5 rounded border border-burgundy-700/20">0</span>
+                    </h3>
+                    <div id="posts-list" class="space-y-2.5 max-h-[650px] overflow-y-auto pr-1">
+                        <p class="text-xs text-ink-500 animate-pulse font-sans">Accediendo al repositorio institucional...</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Metodológica -->
+                <div class="bg-paper-100 border border-paper-200 p-4 rounded-lg text-xs text-ink-700 space-y-2">
+                    <h4 class="font-serifTitle font-bold text-oxford-900 uppercase">Nota Metodológica</h4>
+                    <p class="line-clamp-4 leading-relaxed">
+                        Los dictámenes integran minería de datos factuales (OSINT) con la Malla Curricular Universitaria de Relaciones Internacionales. Cada análisis incluye doble trazabilidad de prensa y cuadernos teóricos.
+                    </p>
                 </div>
             </aside>
 
-            <!-- Visor de Dictamen Auditado -->
-            <article class="lg:col-span-3 bg-navy-800 border border-slate-800 rounded-xl p-6 sm:p-10 shadow-2xl">
-                <div id="active-post-header" class="mb-6 pb-6 border-b border-slate-700">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span id="active-category" class="text-xs font-semibold uppercase px-2.5 py-0.5 bg-gold-500/10 text-gold-400 border border-gold-500/30 rounded">DICTAMEN AUDITADO</span>
-                        <span id="active-date" class="text-xs text-slate-400">---</span>
+            <!-- Papel del Dictamen Principal (Column 8) -->
+            <article class="lg:col-span-8 bg-white border border-paper-200 rounded-lg p-6 sm:p-12 shadow-sm order-1 lg:order-2">
+                <header id="active-post-header" class="mb-8 pb-6 border-b-2 border-paper-200">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <span id="active-category" class="text-[11px] font-sans font-bold uppercase tracking-wider px-2.5 py-0.5 bg-burgundy-800 text-white rounded">DICTAMEN AUDITADO</span>
+                        <span id="active-date" class="text-xs font-mono text-ink-500">-----</span>
                     </div>
-                    <h2 id="active-title" class="font-serif text-2xl sm:text-4xl font-bold text-white">Cargando último reporte...</h2>
-                </div>
-                <div id="active-post-content" class="markdown-body">
-                    <p class="text-slate-400">Selecciona un dictamen de la lista lateral o espera la carga automática...</p>
+                    <h2 id="active-title" class="font-serifTitle text-2xl sm:text-3xl font-bold text-oxford-900 leading-tight">Cargando dictamen institucional...</h2>
+                </header>
+
+                <!-- Cuerpo de Texto (Estilo Monografía / Journal) -->
+                <div id="active-post-content" class="academic-body max-w-none">
+                    <p class="text-ink-500 text-sm font-sans">Selecciona una publicación del archivo lateral para iniciar la lectura...</p>
                 </div>
             </article>
 
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 bg-navy-900 py-8 text-center text-xs text-slate-500">
-        <p>© 2026 INFOGLOBAL ECOSYSTEM | OSINT & Geopolitical Intelligence Framework</p>
+    <!-- Pie de Página Institucional -->
+    <footer class="border-t-2 border-oxford-900 bg-paper-100 py-10 text-center text-xs text-ink-700 font-sans">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p class="font-serifTitle text-sm font-bold text-oxford-900">INFOGLOBAL ECOSYSTEM</p>
+            <p>© 2026 INFOGLOBAL | Framework de Inteligencia Geopolítica y Análisis Estratégico</p>
+            <p class="text-[10px] text-ink-500">Diseñado bajo estándares de visualización académica y lectura de alta densidad.</p>
+        </div>
     </footer>
 
-    <!-- Script de Carga desde GitHub API -->
+    <!-- Lógica de Consulta GitHub API & Parseo -->
     <script>
         const GITHUB_REPO = "estleonardoebuit2-dev/Infoglobal.com";
         const POSTS_PATH = "posts";
+
+        // Mostrar fecha actual en membrete
+        document.getElementById("current-date").innerText = new Date().toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase();
 
         async function cargarDictamenes() {
             const listContainer = document.getElementById("posts-list");
@@ -118,7 +172,7 @@
 
             try {
                 const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${POSTS_PATH}`);
-                if (!res.ok) throw new Error("No se encontraron dictámenes.");
+                if (!res.ok) throw new Error("No se halló el repositorio.");
 
                 const files = await res.json();
                 const mdFiles = files.filter(f => f.name.endsWith(".md")).reverse();
@@ -127,41 +181,46 @@
                 listContainer.innerHTML = "";
 
                 if (mdFiles.length === 0) {
-                    listContainer.innerHTML = `<p class="text-xs text-slate-500">No hay publicaciones disponibles.</p>`;
+                    listContainer.innerHTML = `<p class="text-xs text-ink-500 font-sans">No hay dictámenes disponibles en el catálogo.</p>`;
                     return;
                 }
 
                 mdFiles.forEach((file, index) => {
                     const btn = document.createElement("button");
-                    btn.className = `w-full text-left p-3 rounded-lg border transition-all text-xs font-medium ${
+                    btn.className = `w-full text-left p-3 rounded transition-all text-xs border ${
                         index === 0 
-                            ? 'bg-navy-700 border-gold-500/50 text-white shadow' 
-                            : 'bg-navy-900/50 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200'
+                            ? 'bg-paper-100 border-burgundy-800 text-oxford-900 font-semibold shadow-sm' 
+                            : 'bg-white border-paper-200 text-ink-700 hover:border-paper-300 hover:bg-paper-50'
                     }`;
                     
                     const dateStr = file.name.substring(0, 10);
                     const titleClean = file.name.replace(".md", "").replace(dateStr + "-", "").replaceAll("-", " ");
                     
                     btn.innerHTML = `
-                        <span class="block text-[10px] text-gold-500 font-mono mb-1">${dateStr}</span>
-                        <span class="line-clamp-2 font-semibold capitalize">${titleClean}</span>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] text-burgundy-800 font-mono font-bold">${dateStr}</span>
+                            <span class="text-[9px] font-sans uppercase px-1.5 py-0.2 bg-paper-200 text-oxford-900 rounded">Informe</span>
+                        </div>
+                        <span class="line-clamp-2 font-serifTitle text-sm capitalize leading-snug">${titleClean}</span>
                     `;
                     
                     btn.onclick = () => {
                         document.querySelectorAll("#posts-list button").forEach(b => {
-                            b.className = b.className.replace('bg-navy-700 border-gold-500/50 text-white shadow', 'bg-navy-900/50 border-slate-800 text-slate-400');
+                            b.className = 'w-full text-left p-3 rounded transition-all text-xs border bg-white border-paper-200 text-ink-700 hover:border-paper-300 hover:bg-paper-50';
                         });
-                        btn.className = 'w-full text-left p-3 rounded-lg border transition-all text-xs font-medium bg-navy-700 border-gold-500/50 text-white shadow';
+                        btn.className = 'w-full text-left p-3 rounded transition-all text-xs border bg-paper-100 border-burgundy-800 text-oxford-900 font-semibold shadow-sm';
                         mostrarPost(file.download_url, titleClean, dateStr);
                     };
 
                     listContainer.appendChild(btn);
                 });
 
-                mostrarPost(mdFiles[0].download_url, mdFiles[0].name.replace(".md", "").substring(11).replaceAll("-", " "), mdFiles[0].name.substring(0, 10));
+                // Cargar automáticamente el más reciente
+                const primerTitulo = mdFiles[0].name.replace(".md", "").substring(11).replaceAll("-", " ");
+                mostrarPost(mdFiles[0].download_url, primerTitulo, mdFiles[0].name.substring(0, 10));
 
             } catch (err) {
-                listContainer.innerHTML = `<p class="text-xs text-red-400">Error al conectar con GitHub API.</p>`;
+                listContainer.innerHTML = `<p class="text-xs text-burgundy-800 font-sans">Error al conectar con la biblioteca de archivos.</p>`;
             }
         }
 
@@ -170,12 +229,13 @@
             const dateElem = document.getElementById("active-date");
             const contentElem = document.getElementById("active-post-content");
 
-            contentElem.innerHTML = `<p class="text-xs text-slate-400 animate-pulse">Desencriptando dictamen y formato Markdown...</p>`;
+            contentElem.innerHTML = `<p class="text-xs text-ink-500 animate-pulse font-sans">Procesando y aplicando tipografía académica...</p>`;
 
             try {
                 const res = await fetch(url);
                 let text = await res.text();
 
+                // Quitar Frontmatter si existe
                 if (text.startsWith("---")) {
                     text = text.substring(text.indexOf("---", 3) + 3);
                 }
@@ -185,7 +245,7 @@
                 contentElem.innerHTML = marked.parse(text);
 
             } catch (e) {
-                contentElem.innerHTML = `<p class="text-xs text-red-400">Error al renderizar el dictamen seleccionado.</p>`;
+                contentElem.innerHTML = `<p class="text-xs text-burgundy-800 font-sans">Error al decodificar el informe seleccionado.</p>`;
             }
         }
 
